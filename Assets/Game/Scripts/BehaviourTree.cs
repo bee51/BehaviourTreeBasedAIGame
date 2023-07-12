@@ -12,6 +12,10 @@ namespace Game.Scripts
 
         public override NodeStatus Process()
         {
+            if (childrenList.Count==0)
+            {
+                return NodeStatus.Success;
+            }
             return childrenList[currentChildIndex].status;
         }
 

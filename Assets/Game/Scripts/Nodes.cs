@@ -17,6 +17,7 @@ namespace Game.Scripts
         public List<Node> childrenList = new List<Node>();
         public string name;
         public int currentChildIndex=0;
+        public int sortOrder;
 
   
         // json or xml file writing references
@@ -24,6 +25,11 @@ namespace Game.Scripts
         public Node(string name)
         {
             this.name = name;
+        }
+        public Node(string name, int order)
+        {
+            this.name = name;
+            sortOrder = order;
         }
 
      
