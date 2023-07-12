@@ -5,6 +5,7 @@ namespace Game.Scripts
     public class PSelector : Node
     {
         public Node[] nodeArray;
+        public bool isOrdered;
 
         public PSelector(string name) : base(name)
         {
@@ -57,9 +58,15 @@ namespace Game.Scripts
             }
         }
 
+
         public override NodeStatus Process()
         {
-            OrderNodes();
+            if (!isOrdered)
+            {
+                isOrdered = true;
+                OrderNodes();
+            }
+
             NodeStatus childStatus = childrenList[currentChildIndex].Process();
             //running
             if (childStatus == NodeStatus.Running)
@@ -71,6 +78,7 @@ namespace Game.Scripts
             if (childStatus == NodeStatus.Success)
             {
                 currentChildIndex = 0;
+                isOrdered = false;
                 return childStatus;
             }
 
@@ -79,7 +87,7 @@ namespace Game.Scripts
             if (currentChildIndex >= childrenList.Count)
             {
                 currentChildIndex = 0;
-
+                isOrdered = false;
                 return NodeStatus.Failure;
             }
 

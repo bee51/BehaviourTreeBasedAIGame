@@ -1,16 +1,27 @@
-﻿namespace Game.Scripts
+namespace Game.Scripts
 {
-    public class Selector : Node
+    public class RandomSelector : Node
     {
-        public Selector(string name) : base(name)
+        public Node[] nodeArray;
+        public bool isRandomize;
+
+
+        public RandomSelector(string name) : base(name)
         {
-            base.name = name + "Selector";
+            base.name = name + "PSelector";
         }
-        
+
+
+
         public override NodeStatus Process()
         {
-            NodeStatus childStatus = childrenList[currentChildIndex].Process();
+            if (!isRandomize)
+            {
+                isRandomize = true;
+                childrenList.Shuffle();
+            }
 
+            NodeStatus childStatus = childrenList[currentChildIndex].Process();
             //running
             if (childStatus == NodeStatus.Running)
             {
@@ -21,6 +32,7 @@
             if (childStatus == NodeStatus.Success)
             {
                 currentChildIndex = 0;
+                isRandomize = false;
                 return childStatus;
             }
 
@@ -29,7 +41,7 @@
             if (currentChildIndex >= childrenList.Count)
             {
                 currentChildIndex = 0;
-
+                isRandomize = false;
                 return NodeStatus.Failure;
             }
 
