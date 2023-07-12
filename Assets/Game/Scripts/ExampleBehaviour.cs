@@ -25,8 +25,8 @@ namespace Game.Scripts
 
             _tree = new BehaviourTree("RobberTree");
             Sequence steal = new Sequence("Steal");
-            Leaf goToObject = new Leaf("GoObject",GoObject());
-            Leaf goBack = new Leaf("GoBack",GoBack());
+            Leaf goToObject = new Leaf("GoObject",GoObject);
+            Leaf goBack = new Leaf("GoBack",GoBack);
             
             _tree.AddChild(steal);
             

@@ -8,11 +8,11 @@ namespace Game.Scripts
 
         public Tick ProcessMethod;
 
-        public Leaf(string name, NodeStatus pm) : base(name)
+        public Leaf(string name, Tick pm) : base(name)
         {
             // json or xml file writing references
             base.name = name + "tree";
-            ProcessMethod += pm;
+            ProcessMethod = pm;
         }
 
         public override NodeStatus Process()
