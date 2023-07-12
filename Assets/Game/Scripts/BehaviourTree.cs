@@ -10,6 +10,11 @@ namespace Game.Scripts
             base.name = name + "tree";
         }
 
+        public override NodeStatus Process()
+        {
+            return childrenList[currentChildIndex].status;
+        }
+
         public void PrintTree()
         {
             string treePrintOut = "";

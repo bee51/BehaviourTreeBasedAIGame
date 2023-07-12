@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 
 
 namespace Game.Scripts
@@ -17,11 +18,20 @@ namespace Game.Scripts
         public string name;
         public int currentChildIndex=0;
 
+  
+        // json or xml file writing references
+
         public Node(string name)
         {
             this.name = name;
         }
 
+     
+
+        public virtual NodeStatus Process()
+        {
+            return childrenList[currentChildIndex].status;
+        }
         public void AddChild(Node addedNode)
         {
             childrenList.Add(addedNode);
