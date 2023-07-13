@@ -43,6 +43,15 @@ namespace Game.Scripts
             childrenList.Add(addedNode);
         }
 
-       
+
+        public void Reset()
+        {
+            foreach (var childNodes in childrenList)
+            {
+                childNodes.Reset();
+            }
+
+            currentChildIndex = 0;
+        }
     }
 }

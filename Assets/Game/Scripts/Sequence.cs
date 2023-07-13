@@ -1,4 +1,6 @@
-﻿namespace Game.Scripts
+﻿using UnityEngine;
+
+namespace Game.Scripts
 {
     public class Sequence : Node
     {
@@ -29,5 +31,4 @@
             return NodeStatus.Running;
         }
     }
-
 }
