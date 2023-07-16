@@ -19,6 +19,19 @@ A behavior tree is a directed acyclic graph (DAG) where each node represents an 
 
 Behavior trees are typically evaluated from the root node down to the leaf nodes, considering the outcome of each node to determine the next node to execute. This evaluation process creates a dynamic decision-making system that can adapt to changing conditions.
 
+
+## Leaf Actions
+
+Leaf actions are the lowest-level actions in a behavior tree and are typically represented as action nodes. These actions directly affect the AI character's behavior and can include a wide range of activities, such as:
+
+- **Movement**: Move to a specific position, follow a path, or navigate around obstacles.
+- **Interaction**: Interact with objects, pick up items, or open doors.
+- **Combat**: Attack enemies, use special abilities, or defend against incoming attacks.
+- **Decision Making**: Make strategic decisions based on the current game state.
+- **Animation**: Play specific animations or trigger visual effects.
+- **Communication**: Communicate with other characters or relay information.
+
+  
 ## Repository Structure
 
 This repository provides a set of behavior tree elements that you can use as a foundation for implementing AI characters in Unity. It includes the following files:
@@ -45,9 +58,7 @@ To use the behavior tree elements in your Unity project, follow these steps:
 
 Make sure to refer to the Unity documentation for more information on how to work with Unity and C#.
 
-## License
 
-This repository is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute the code in accordance with the terms of the license.
 
 ## Acknowledgments
 
